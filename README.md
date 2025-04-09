@@ -9,6 +9,12 @@ The project aims to develop a Multi-Agent Reinforcement Learning (MARL) framewor
  - Agents (robots) must cooperate without communication to find an optimal path.
  - Similar to how ants outperform humans under communication constraints, we aim to see if MARL-trained robots can learn optimal cooperative strategies.
 
+ ### Tools Selection [(Selection Criterion)](Tools_select.md)
+- Pybullet for physics based env
+- Pytorch for MARL implementation
+
+
+
  ## My Approach
 
  MARL Implementation & Training Process(These are my initial thoughts on how I will be proceeding and might change based on results I observe)
