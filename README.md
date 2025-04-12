@@ -12,12 +12,35 @@ The project aims to develop a Multi-Agent Reinforcement Learning (MARL) framewor
  ### Tools Selection [(Selection Criterion)](Tools_select.md)
 - Pybullet for physics based env
 - Pytorch for MARL implementation
-
+- Below shown is the Environment of my Simulation
+    ![env](envs/env01.png)
 
 
  ## My Approach
 
  MARL Implementation & Training Process(These are my initial thoughts on how I will be proceeding and might change based on results I observe)
+
+ I will be utilising the concept of the Reward Shaping, Instead of a single reward function for the final goal, I will design smaller, step-based rewards that guide the agent toward the overall objective. This incremental approach—often called curriculum learning—helps the agent learn simpler subgoals before tackling complex tasks.
+ For instance, 
+ 
+1. Initial Single-Agent Training 
+    -  Subgoal A: Train a policy so that a single agent moves toward the object and “attaches” to it (i.e., aligns or latches on).
+     - Subgoal B: Extend the policy so the agent maneuvers the object to a specific target location.
+ 2. Obstacle Avoidance 
+    -  Modify the reward function to encourage avoiding walls or other obstacles while maneuvering the object.
+ 3. Introduce a Second Agent
+     -  Use the same previously trained policies for both agents.
+     - Encourage cooperative behavior—both agents must coordinate object manipulation.
+
+ 4. Increase Complexity
+     - Once the agents have demonstrated basic cooperation, increase the object’s complexity or narrow the available space. This tests the robustness of the learned policies.
+  
+ 5. Single Policy for Multiple Agents
+    - Eventually, I will train a single policy controlling two (or more) agents simultaneously. This step aims to see if a shared policy can generalize better than separate agent-specific policies.
+ 6. Final Deployment 
+    - Use the trained policy on each agent to achieve the final objective (maneuvering the object through tight spaces without explicit communication).
+
+My Variables
 1. State Representation:
     - Each agent observes its position, neighboring agents, object position, and applied forces.
 2. Action Space:
