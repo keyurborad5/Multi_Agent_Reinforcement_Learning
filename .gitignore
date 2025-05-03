@@ -1,2 +1,5 @@
 marl-env/
 ppo_pistonball.zip
+.gitignore
+__pycache__/
+.gitignore.txt
