@@ -15,6 +15,26 @@ The project aims to develop a Multi-Agent Reinforcement Learning (MARL) framewor
 - Below shown is the Environment of my Simulation
     ![env](envs/env01.png)
 
+## Implementation on Single Agent
+1. Agent towards the cube
+
+    ![rec1](assests/Rec_4.gif)
+
+2. Agents towards cube and attached itself
+    
+    ![rec2](assests/Rec_5.gif)
+
+3. Agents towards cube and attached itself and moves towards goal
+    
+    ![rec2](assests/Rec_3.gif)
+
+### Docker Implementation
+
+Follow the steps  👉 [Docker walkthrough](ubuntu/README.md)
+
+### Windows Implementation
+
+Follow the step 👉 [Windows implementation](win/README.md)
 
  ## My Approach
 
@@ -42,14 +62,15 @@ The project aims to develop a Multi-Agent Reinforcement Learning (MARL) framewor
 
 My Variables
 1. State Representation:
-    - Each agent observes its position, neighboring agents, object position, and applied forces.
+    - Each agent observes its position, neighboring agents, object position, and Goal position.
 2. Action Space:
     - 8 actions : (attached , detached to an obeject) X (Move forward, backward, left, right)
 3. Reward Function:
-    -  +1 for successful movement towards the goal.
-    - -1 for collision with obstacles.
-    - +10 when the object reaches the final destination.
-    - Penalty for excessive force to encourage efficient movements.
+    -  Here + rewards for movement in the direction of the objective
+    - Neg rewards if it moves away from it
+    - Exponential reward gain as the distance decreases
+    - A reward boost when attached and this rewards decays over time
 4. Comparison With Other RL Methods
     - MADDPG vs. QMIX vs. PPO: Compare different MARL approaches.
     - With Communication vs. Without Communication: Evaluate the impact of information exchange.
+
